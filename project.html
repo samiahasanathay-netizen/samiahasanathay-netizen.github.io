@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project — Samia Athay</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2314161c%22/><text x=%2250%25%22 y=%2258%25%22 font-size=%2250%22 fill=%22%23c69a3e%22 text-anchor=%22middle%22 font-family=%22Georgia%22>S</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav on-dark">
+  <a href="index.html" class="wordmark"><span class="dot"></span>SAMIA ATHAY</a>
+  <ul class="nav-links">
+    <li class="nav-item"><a class="nav-link" data-page="index.html" href="index.html">Home</a></li>
+    <li class="nav-item"><a class="nav-link" data-page="about.html" href="about.html">About</a></li>
+    <li class="nav-item has-dropdown">
+      <a class="nav-link active" href="academic.html">Portfolio</a>
+      <div class="dropdown">
+        <a href="academic.html">Academic Portfolio<small>14 coursework projects, ULAB</small></a>
+        <a href="professional.html">Professional Portfolio<small>PR, film &amp; costume work</small></a>
+      </div>
+    </li>
+    <li class="nav-item"><a class="nav-link" data-page="internship.html" href="internship.html">Internship</a></li>
+    <li class="nav-item"><a class="nav-link" data-page="contact.html" href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <section class="stage page-hero project-hero" style="padding-bottom:2rem;">
+    <div class="container">
+      <a href="academic.html" class="back-link" style="margin-bottom:1.6rem; display:inline-flex;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+        All 14 projects
+      </a>
+      <p class="kicker" id="p-course">Loading…</p>
+      <h1 id="p-title" style="max-width:22ch;"></h1>
+      <p id="p-titlebn" style="font-family:var(--f-display); font-style:italic; font-size:1.3rem; color:var(--gold-soft); margin-top:.8rem; display:none;"></p>
+    </div>
+  </section>
+
+  <div class="pattern-band" aria-hidden="true"></div>
+
+  <section class="page section">
+    <div class="container" style="max-width:1200px;">
+      <dl class="detail-meta">
+        <div><dt>Project Type</dt><dd id="p-type"></dd></div>
+        <div><dt>Semester</dt><dd id="p-semester"></dd></div>
+        <div><dt>Project No.</dt><dd id="p-id"></dd></div>
+      </dl>
+
+      <div class="detail-split">
+        <div class="detail-split-text">
+          <div class="detail-body">
+            <div data-reveal>
+              <h4>Description</h4>
+              <p id="p-description"></p>
+            </div>
+            <div data-reveal>
+              <h4>Justification</h4>
+              <p id="p-justification"></p>
+            </div>
+          </div>
+
+          <div class="detail-link" id="p-link-wrap" style="display:none;">
+            <a id="p-link" class="btn outline-paper" target="_blank" rel="noopener">
+              <span id="p-link-label"></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="detail-pdf" id="p-pdf-wrap" style="display:none;">
+          <div class="detail-pdf-head">
+            <h4>Full Project PDF</h4>
+            <a id="p-pdf-open" href="#" target="_blank" rel="noopener" class="pdf-open-link">
+              Open in new tab
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+            </a>
+          </div>
+          <div class="pdf-frame">
+            <iframe id="p-pdf-frame" src="" title="Project PDF" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-nav">
+        <a id="p-prev" href="#"><small>Previous</small><span id="p-prev-label"></span></a>
+        <a id="p-next" href="#" class="next"><small>Next</small><span id="p-next-label"></span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <span class="footer-mark">Samia Athay</span>
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="academic.html">Academic Portfolio</a>
+        <a href="professional.html">Professional Portfolio</a>
+        <a href="internship.html">Internship</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Samia Athay. Built for GitHub Pages.</span>
+      <span class="socials">
+        <a href="https://www.linkedin.com/in/samia-athay" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:samiahasan.athay@gmail.com">Email</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/academic-data.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get('id'), 10) || 1;
+  const project = ACADEMIC_PROJECTS.find(p => p.id === id) || ACADEMIC_PROJECTS[0];
+  const idx = ACADEMIC_PROJECTS.findIndex(p => p.id === project.id);
+  const prev = ACADEMIC_PROJECTS[(idx - 1 + ACADEMIC_PROJECTS.length) % ACADEMIC_PROJECTS.length];
+  const next = ACADEMIC_PROJECTS[(idx + 1) % ACADEMIC_PROJECTS.length];
+
+  document.title = project.title + ' — Samia Athay';
+  document.getElementById('p-course').textContent = project.course;
+  document.getElementById('p-title').textContent = project.title;
+  document.getElementById('p-id').textContent = 'Project ' + String(project.id).padStart(2,'0') + ' / 14';
+  document.getElementById('p-type').textContent = project.type;
+  document.getElementById('p-semester').textContent = project.semester;
+  document.getElementById('p-description').textContent = project.description;
+  document.getElementById('p-justification').textContent = project.justification;
+
+  if (project.titleBn) {
+    const bn = document.getElementById('p-titlebn');
+    bn.textContent = project.titleBn;
+    bn.style.display = 'block';
+  }
+
+  if (project.link) {
+    document.getElementById('p-link-wrap').style.display = 'block';
+    document.getElementById('p-link').href = project.link.url;
+    document.getElementById('p-link-label').textContent = project.link.label;
+  }
+
+  if (project.pdf) {
+    document.getElementById('p-pdf-wrap').style.display = 'block';
+    document.getElementById('p-pdf-frame').src = project.pdf + '#toolbar=1&view=FitH';
+    document.getElementById('p-pdf-open').href = project.pdf;
+  }
+
+  const prevEl = document.getElementById('p-prev');
+  prevEl.href = 'project.html?id=' + prev.id;
+  document.getElementById('p-prev-label').textContent = prev.title;
+
+  const nextEl = document.getElementById('p-next');
+  nextEl.href = 'project.html?id=' + next.id;
+  document.getElementById('p-next-label').textContent = next.title;
+})();
+</script>
+</body>
+</html>
